@@ -1,5 +1,6 @@
 package com.springproject.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springproject.course.entities.pk.OrderItemPk;
 
 import javax.persistence.Embedded;
@@ -13,14 +14,14 @@ import java.util.Objects;
 public class OrderItem {
 
     @EmbeddedId
-    private OrderItemPk id;
+    private OrderItemPk id = new OrderItemPk();
     private Integer quantity;
-    private Long price;
+    private Double price;
 
     public OrderItem(){
     }
 
-    public OrderItem(Order order, Product product, Integer quantity, Long price) {
+    public OrderItem(Order order, Product product, Integer quantity, Double price) {
         id.setOrder(order);
         id.setProduct(product);
 
@@ -28,6 +29,7 @@ public class OrderItem {
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder(){
         return id.getOrder();
     }
@@ -52,11 +54,11 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
