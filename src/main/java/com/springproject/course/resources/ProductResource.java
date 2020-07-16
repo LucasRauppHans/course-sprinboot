@@ -3,7 +3,6 @@ package com.springproject.course.resources;
 
 import com.springproject.course.entities.Product;
 import com.springproject.course.services.ProductService;
-import com.springproject.course.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
